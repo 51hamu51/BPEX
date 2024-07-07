@@ -169,7 +169,7 @@ public class PlayerScript : MonoBehaviourPunCallbacks
             {
                 restart = 1;
 
-
+                PhotonNetwork.Instantiate("GoodByeParticle", transform.position, Quaternion.Euler(-90, 0, 0));
                 Invoke(nameof(Restart), 0.1f);
 
 
