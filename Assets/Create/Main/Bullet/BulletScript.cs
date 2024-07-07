@@ -7,7 +7,7 @@ public class BulletScript : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     private TextMeshProUGUI MembersText;
-    private float deleteTime = 1000.0f;
+    private float deleteTime = 10.0f;
     int t;
 
     void Start()

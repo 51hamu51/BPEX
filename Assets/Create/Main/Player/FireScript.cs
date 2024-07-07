@@ -38,7 +38,7 @@ public class FireScript : MonoBehaviourPunCallbacks
     public static int shieldC = 0;
     public static int kogetuC = 0;
     public static int chameleonC = 0;
-    private int asteroidReady = 0;
+    /*   private int asteroidReady = 0; */
 
     void Start()
     {
