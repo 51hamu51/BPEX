@@ -50,8 +50,8 @@ public class HoundScript : MonoBehaviourPunCallbacks
         }
         if (collider.gameObject.CompareTag("Player"))
         {
-            collider.gameObject.GetComponent<PlayerScript>().TagChangeDame();
-            collider.gameObject.GetComponent<PlayerScript>().TagChangeDame2();
+            /* collider.gameObject.GetComponent<PlayerScript>().TagChangeDame();
+            collider.gameObject.GetComponent<PlayerScript>().TagChangeDame2(); */
             Invoke(nameof(BulletDest), 0.2f);
 
         }

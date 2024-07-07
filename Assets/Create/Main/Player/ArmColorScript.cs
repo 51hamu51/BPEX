@@ -41,10 +41,10 @@ public class ArmColorScript : MonoBehaviourPunCallbacks
         {
             GetComponent<Renderer>().material.color = new Color32(0, 0, 0, 255);
         }
-        else if (PlayerScript.damage != 0)
-        {
-            GetComponent<Renderer>().material.color = new Color32(255, 0, 0, 255);
-        }
+        /*  else if (PlayerScript.damage != 0)
+         {
+             GetComponent<Renderer>().material.color = new Color32(255, 0, 0, 255);
+         } */
         else
         {
             defaultcolor.a = 1.0f;

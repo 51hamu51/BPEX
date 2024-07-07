@@ -181,22 +181,22 @@ public class FireScript : MonoBehaviourPunCallbacks
 
         }
 
-        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina > 0 && chameleonC == 0 && SettingTextScript.Bul[bulletmode - 1] == "chameleon")
-        {
-            /*  カメレオン */
-            chameleonC = 1;
+        /*   if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina > 0 && chameleonC == 0 && SettingTextScript.Bul[bulletmode - 1] == "chameleon")
+          {
+
+              chameleonC = 1;
 
 
-        }
-        else if (Input.GetMouseButtonDown(0) && PauseTextScript.Pause == 1 || PlayerScript.stamina <= 0 || SettingTextScript.Bul[bulletmode - 1] != "chameleon")
-        {
-            /*  カメレオン */
-            chameleonC = 0;
+          }
+          else if (Input.GetMouseButtonDown(0) && PauseTextScript.Pause == 1 || PlayerScript.stamina <= 0 || SettingTextScript.Bul[bulletmode - 1] != "chameleon")
+          {
 
-        }
-        if (chameleonC == 1)
+              chameleonC = 0;
+
+          } */
+        /* if (chameleonC == 1)
         {
-            /*  カメレオン */
+            
             GetComponent<Renderer>().material.color = new Color32(28, 86, 236, 60);
             this.tag = "Chameleon";
             gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Legacy Shaders/Transparent/Diffuse");
@@ -209,7 +209,7 @@ public class FireScript : MonoBehaviourPunCallbacks
         }
         else if (PlayerScript.lead == 0 && PlayerScript.damage == 0)
         {
-            /*  カメレオン */
+            
             GetComponent<Renderer>().material.color = new Color32(28, 86, 236, 255);
             this.tag = "Me";
             gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
@@ -225,7 +225,7 @@ public class FireScript : MonoBehaviourPunCallbacks
             GetComponent<Renderer>().material.color = new Color32(255, 0, 0, 255);
             this.tag = "Me";
             gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
-        }
+        } */
 
 
         if (PauseTextScript.Pause == 1 && SettingTextScript.Bul[bulletmode - 1] == "free")

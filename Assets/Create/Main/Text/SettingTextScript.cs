@@ -11,7 +11,7 @@ public class SettingTextScript : MonoBehaviour
     public string Bula;
     public string Bulb;
 
-    public static string[] Bul = { "asteroid", "chameleon", "leadbullet", "meteora", "hound", "shield", "kogetu", "grasshopper", "escudo", "free", "free2", "free3" };
+    public static string[] Bul = { "asteroid", "meteora", "hound", "shield", "kogetu", "grasshopper", "escudo", "free", "free2", "free3" }; /*, "chameleon", , "leadbullet"*/
 
     private int x, y;
 

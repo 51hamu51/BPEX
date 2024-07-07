@@ -143,20 +143,20 @@ public class PlayerScript : MonoBehaviourPunCallbacks
             }
 
 
+            /* 
+                        if (lead == 1)
+                        {
+                            speed = 0;
+                            GetComponent<Renderer>().material.color = new Color32(0, 0, 0, 255);
+                            lead = 2;
+                            CancelInvoke();
 
-            if (lead == 1)
-            {
-                speed = 0;
-                GetComponent<Renderer>().material.color = new Color32(0, 0, 0, 255);
-                lead = 2;
-                CancelInvoke();
-
-                Invoke(nameof(Leadcancel), 3.0f);
-            }
+                            Invoke(nameof(Leadcancel), 3.0f);
+                        } */
             if (damage == 1)
             {
 
-                GetComponent<Renderer>().material.color = new Color32(255, 0, 0, 255);
+                GetComponent<Renderer>().material.color = new Color32(255, 255, 255, 255);
                 damage = 2;
                 PauseTextScript.Pause = 1;
                 CancelInvoke();
@@ -179,24 +179,24 @@ public class PlayerScript : MonoBehaviourPunCallbacks
         }
 
     }
-    public void TagChangeDame()
-    {
-        GetComponent<Renderer>().material.color = new Color32(255, 0, 0, 255);
-        Debug.Log("Dame1");
-    }
-    public void TagChangeDame2()
-    {
+    /*    public void TagChangeDame()
+       {
+           GetComponent<Renderer>().material.color = new Color32(255, 0, 0, 255);
+           Debug.Log("Dame1");
+       }
+       public void TagChangeDame2()
+       {
 
-        Debug.Log("Dame2");
-        Invoke(nameof(TagChangeDame3), 0.1f);
-    }
-    public void TagChangeDame3()
-    {
-        GetComponent<Renderer>().material.color = new Color32(28, 86, 236, 255);
-        Debug.Log("Dame3");
+           Debug.Log("Dame2");
+           Invoke(nameof(TagChangeDame3), 0.1f);
+       }
+       public void TagChangeDame3()
+       {
+           GetComponent<Renderer>().material.color = new Color32(28, 86, 236, 255);
+           Debug.Log("Dame3");
 
-    }
-
+       }
+    */
     [PunRPC]
     private void RpcSendLead(int i)
     {

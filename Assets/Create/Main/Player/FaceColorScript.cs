@@ -18,13 +18,13 @@ public class FaceColorScript : MonoBehaviour
     {
 
 
-        if (FireScript.chameleonC == 1)
+        /* if (FireScript.chameleonC == 1)
         {
             defaultcolor.a = 0.3f;
             GetComponent<Renderer>().material.color = defaultcolor;
 
         }
-        else
+        else */
         {
             defaultcolor.a = 1.0f;
             GetComponent<Renderer>().material.color = defaultcolor;

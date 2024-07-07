@@ -7,7 +7,7 @@ public class BulletScript : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     private TextMeshProUGUI MembersText;
-    private float deleteTime = 3.0f;
+    private float deleteTime = 1000.0f;
     int t;
 
     void Start()
@@ -43,8 +43,8 @@ public class BulletScript : MonoBehaviourPunCallbacks
         if (collider.gameObject.CompareTag("Player"))
         {
 
-            collider.gameObject.GetComponent<PlayerScript>().TagChangeDame();
-            collider.gameObject.GetComponent<PlayerScript>().TagChangeDame2();
+            /* collider.gameObject.GetComponent<PlayerScript>().TagChangeDame();
+            collider.gameObject.GetComponent<PlayerScript>().TagChangeDame2(); */
 
 
             Invoke(nameof(BulletDest), 0.1f);
