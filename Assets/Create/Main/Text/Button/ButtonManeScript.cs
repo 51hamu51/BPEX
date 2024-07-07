@@ -14,8 +14,8 @@ public class ButtonManeScript : MonoBehaviour
     [SerializeField] GameObject Button8;
     [SerializeField] GameObject Button9;
     [SerializeField] GameObject Button10;
-    [SerializeField] GameObject Button11;
-    [SerializeField] GameObject Button12;
+    /* [SerializeField] GameObject Button11;
+    [SerializeField] GameObject Button12; */
     [SerializeField] GameObject Retire;
     [SerializeField] GameObject Button1Text;
     [SerializeField] GameObject Button2Text;
@@ -27,8 +27,8 @@ public class ButtonManeScript : MonoBehaviour
     [SerializeField] GameObject Button8Text;
     [SerializeField] GameObject Button9Text;
     [SerializeField] GameObject Button10Text;
-    [SerializeField] GameObject Button11Text;
-    [SerializeField] GameObject Button12Text;
+    /*  [SerializeField] GameObject Button11Text;
+     [SerializeField] GameObject Button12Text; */
 
     void Start()
     {
@@ -62,12 +62,12 @@ public class ButtonManeScript : MonoBehaviour
         ButtonScript B10s;
         B10s = Button10.GetComponent<ButtonScript>();
         B10s.ButtonNum = 9;
-        ButtonScript B11s;
-        B11s = Button11.GetComponent<ButtonScript>();
-        B11s.ButtonNum = 10;
-        ButtonScript B12s;
-        B12s = Button12.GetComponent<ButtonScript>();
-        B12s.ButtonNum = 11;
+        /*  ButtonScript B11s;
+         B11s = Button11.GetComponent<ButtonScript>();
+         B11s.ButtonNum = 10;
+         ButtonScript B12s;
+         B12s = Button12.GetComponent<ButtonScript>();
+         B12s.ButtonNum = 11; */
 
         ButtonTextScript B1Ts;
         B1Ts = Button1Text.GetComponent<ButtonTextScript>();
@@ -99,12 +99,12 @@ public class ButtonManeScript : MonoBehaviour
         ButtonTextScript B10Ts;
         B10Ts = Button10Text.GetComponent<ButtonTextScript>();
         B10Ts.ButtonNum = 9;
-        ButtonTextScript B11Ts;
-        B11Ts = Button11Text.GetComponent<ButtonTextScript>();
-        B11Ts.ButtonNum = 10;
-        ButtonTextScript B12Ts;
-        B12Ts = Button12Text.GetComponent<ButtonTextScript>();
-        B12Ts.ButtonNum = 11;
+        /*  ButtonTextScript B11Ts;
+         B11Ts = Button11Text.GetComponent<ButtonTextScript>();
+         B11Ts.ButtonNum = 10;
+         ButtonTextScript B12Ts;
+         B12Ts = Button12Text.GetComponent<ButtonTextScript>();
+         B12Ts.ButtonNum = 11; */
     }
 
     void Update()
@@ -121,8 +121,8 @@ public class ButtonManeScript : MonoBehaviour
             Button8.SetActive(true);
             Button9.SetActive(true);
             Button10.SetActive(true);
-            Button11.SetActive(true);
-            Button12.SetActive(true);
+            /* Button11.SetActive(true);
+            Button12.SetActive(true); */
             Retire.SetActive(true);
 
 
@@ -140,8 +140,8 @@ public class ButtonManeScript : MonoBehaviour
             Button8.SetActive(false);
             Button9.SetActive(false);
             Button10.SetActive(false);
-            Button11.SetActive(false);
-            Button12.SetActive(false);
+            /* Button11.SetActive(false);
+            Button12.SetActive(false); */
             Retire.SetActive(false);
         }
     }
