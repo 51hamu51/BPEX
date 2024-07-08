@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3247785236415388126}
   - component: {fileID: -1445791011912981721}
   - component: {fileID: -538666363690120993}
+  - component: {fileID: -116534233251777281}
   m_Layer: 0
   m_Name: GoodByeParticle
   m_TagString: Untagged
@@ -50,7 +51,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4932,3 +4933,15 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &-116534233251777281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3247785236415388127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77435adbf17fe71428eb8a98ef6ecc69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
