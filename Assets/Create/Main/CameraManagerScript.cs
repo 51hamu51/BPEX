@@ -19,7 +19,7 @@ public class CameraManagerScript : MonoBehaviourPunCallbacks
     {
         if (maincamera != null)
         {
-            if (Input.GetKey("space"))
+            /* if (Input.GetKey("space"))
             {
                 maincamera.SetActive(false);
                 backcamera.SetActive(true);
@@ -28,7 +28,7 @@ public class CameraManagerScript : MonoBehaviourPunCallbacks
             {
                 maincamera.SetActive(true);
                 backcamera.SetActive(false);
-            }
+            } */
         }
     }
 }
