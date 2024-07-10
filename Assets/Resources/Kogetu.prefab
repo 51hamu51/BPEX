@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: -5223241684810231981}
   - component: {fileID: 7659647755250398358}
   - component: {fileID: -2817412443836088410}
-  - component: {fileID: 4005760933426722875}
+  - component: {fileID: -1227025372179291926}
   m_Layer: 7
   m_Name: Kogetu
   m_TagString: Untagged
@@ -215,7 +215,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4005760933426722875
+--- !u!114 &-1227025372179291926
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,6 +224,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4488512708559650261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eace4f970446832469b81997904964a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b74589bec1c73245ad11aca39ffe36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
