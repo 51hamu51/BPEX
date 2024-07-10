@@ -165,7 +165,7 @@ public class PlayerScript : MonoBehaviourPunCallbacks
             if (damage == 1)
             {
 
-                GetComponent<Renderer>().material.color = new Color32(255, 255, 255, 255);
+                /*  GetComponent<Renderer>().material.color = new Color32(255, 255, 255, 255); */
                 damage = 2;
                 PauseTextScript.Pause = 1;
                 CancelInvoke();

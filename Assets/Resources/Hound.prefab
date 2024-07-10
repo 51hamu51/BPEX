@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 6520540403845804036}
   - component: {fileID: 347282040537680719}
   - component: {fileID: -6562181800822284252}
+  - component: {fileID: -6319585085566614833}
   m_Layer: 9
   m_Name: Hound
   m_TagString: Bullet
@@ -202,6 +203,18 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &-6319585085566614833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4887586808327665717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eace4f970446832469b81997904964a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5147421309450782020
 GameObject:
   m_ObjectHideFlags: 0
