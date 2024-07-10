@@ -21,7 +21,7 @@ public class ManualTextScript : MonoBehaviour
         }
         else
         {
-            Text.text = string.Format(" <alpha=#33>L click :shoot\nR click  :reload\n  C click  : spread\nWASD:move\n   QE  :lotate\n  shift :dash\n     P  :pause");
+            Text.text = string.Format(" <alpha=#33>L click :shoot\nR click  :reload\n  C click  : spread\nWASD:move\n   QE  :lotate\n  shift :dash\n     P  :pause\n   Q,E : rotate");
         }
     }
 }

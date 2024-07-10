@@ -207,7 +207,7 @@ PrefabInstance:
       propertyPath: m_text
       value: " <alpha=#33>L click :shoot\nR click  :reload\n          C click  :
         mode select\nWASD:move\nArrow : move\n      space  : back camera\n  shift
-        :dash\n      P   :pause"
+        :dash\n      P   :pause\n   Q,E : rotate"
       objectReference: {fileID: 0}
     - target: {fileID: 905169748414004851, guid: 7f1b92a2a4a6bfb479267dc7badaa123, type: 3}
       propertyPath: sceneViewId
