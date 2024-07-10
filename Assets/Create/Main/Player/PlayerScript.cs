@@ -89,12 +89,12 @@ public class PlayerScript : MonoBehaviourPunCallbacks
                 }
                 if (Input.GetKey(KeyCode.E))
                 {
-                    transform.Rotate(0,0.7f,0);
-                    
+                    transform.Rotate(0, 1.0f, 0);
+
                 }
                 if (Input.GetKey(KeyCode.Q))
                 {
-                    transform.Rotate(0,-0.7f,0);
+                    transform.Rotate(0, -1.0f, 0);
                 }
 
                 float mx = Input.GetAxis("Mouse X");

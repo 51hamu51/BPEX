@@ -42,26 +42,30 @@ public class MeteoraScript : MonoBehaviourPunCallbacks
     }
     public void SplitBullet()
     {
-        GameObject bullets = PhotonNetwork.Instantiate("bullet", Vector3.zero, Quaternion.identity, 0) as GameObject;
-        GameObject bullet2 = PhotonNetwork.Instantiate("bullet", Vector3.zero, Quaternion.identity, 0) as GameObject;
-        GameObject bullet3 = PhotonNetwork.Instantiate("bullet", Vector3.zero, Quaternion.identity, 0) as GameObject;
-        GameObject bullet4 = PhotonNetwork.Instantiate("bullet", Vector3.zero, Quaternion.identity, 0) as GameObject;
-        Vector3 force;
-        Vector3 force2;
-        Vector3 force3;
-        Vector3 force4;
-        force = this.gameObject.transform.forward * speed;
-        force2 = this.gameObject.transform.right * speed;
-        force3 = this.gameObject.transform.right * -speed;
-        force4 = this.gameObject.transform.up * -speed;
-        bullets.GetComponent<Rigidbody>().AddForce(force);
-        bullet2.GetComponent<Rigidbody>().AddForce(force2);
-        bullet3.GetComponent<Rigidbody>().AddForce(force3);
-        bullet3.GetComponent<Rigidbody>().AddForce(force4);
-        bullets.transform.position = firingPoint.position;
-        bullet2.transform.position = firingPoint.position;
-        bullet3.transform.position = firingPoint.position;
-        bullet4.transform.position = firingPoint2.position;
+        int i;
+        for (i = 0; i < 5; i++)
+        {
+            GameObject bullets = PhotonNetwork.Instantiate("bullet", Vector3.zero, Quaternion.identity, 0) as GameObject;
+            GameObject bullet2 = PhotonNetwork.Instantiate("bullet", Vector3.zero, Quaternion.identity, 0) as GameObject;
+            GameObject bullet3 = PhotonNetwork.Instantiate("bullet", Vector3.zero, Quaternion.identity, 0) as GameObject;
+            GameObject bullet4 = PhotonNetwork.Instantiate("bullet", Vector3.zero, Quaternion.identity, 0) as GameObject;
+            Vector3 force;
+            Vector3 force2;
+            Vector3 force3;
+            Vector3 force4;
+            force = this.gameObject.transform.forward * speed;
+            force2 = this.gameObject.transform.right * speed;
+            force3 = this.gameObject.transform.right * -speed;
+            force4 = this.gameObject.transform.up * -speed;
+            bullets.GetComponent<Rigidbody>().AddForce(force);
+            bullet2.GetComponent<Rigidbody>().AddForce(force2);
+            bullet3.GetComponent<Rigidbody>().AddForce(force3);
+            bullet3.GetComponent<Rigidbody>().AddForce(force4);
+            bullets.transform.position = firingPoint.position;
+            bullet2.transform.position = firingPoint.position;
+            bullet3.transform.position = firingPoint.position;
+            bullet4.transform.position = firingPoint2.position;
+        }
 
     }
 
