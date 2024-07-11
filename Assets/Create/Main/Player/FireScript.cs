@@ -103,7 +103,7 @@ public class FireScript : MonoBehaviourPunCallbacks
         {
             /* メテオラ */
 
-            GameObject bullets = PhotonNetwork.Instantiate("meteora", firingPoint.position, Quaternion.identity, 0) as GameObject;
+            GameObject bullets = PhotonNetwork.Instantiate("ReMeteora", firingPoint.position, Quaternion.identity, 0) as GameObject;
             Vector3 force;
             force = obj3.gameObject.transform.forward * speed;
             bullets.GetComponent<Rigidbody>().AddForce(force);
