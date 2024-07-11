@@ -19,7 +19,12 @@ public class ExplodeScript : MonoBehaviourPunCallbacks
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.CompareTag("Me"))
+        if (collider.gameObject.CompareTag("Shield"))
+        {
+
+            PhotonNetwork.Destroy(gameObject);
+        }
+        else if (collider.gameObject.CompareTag("Me"))
         {
             PlayerHPScript playerHPS;
             GameObject obj = GameObject.Find("PlayerObserver");
@@ -53,11 +58,7 @@ public class ExplodeScript : MonoBehaviourPunCallbacks
             }
             Invoke(nameof(BulletDest), 0.1f);
         }
-        if (collider.gameObject.CompareTag("Shield"))
-        {
 
-            PhotonNetwork.Destroy(gameObject);
-        }
         if (collider.gameObject.CompareTag("Struct"))
         {
 
