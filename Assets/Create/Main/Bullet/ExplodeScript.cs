@@ -14,6 +14,7 @@ public class ExplodeScript : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
+        Invoke(nameof(BulletDest), 1.0f);
         Invoke(nameof(BulletDest), 0.2f);
     }
 
