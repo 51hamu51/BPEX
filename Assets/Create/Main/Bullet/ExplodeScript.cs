@@ -14,7 +14,7 @@ public class ExplodeScript : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        Invoke(nameof(BulletDest), 0.2f);
+        Invoke(nameof(BulletDest), 1.0f);
     }
 
     void OnTriggerEnter(Collider collider)
@@ -36,12 +36,13 @@ public class ExplodeScript : MonoBehaviourPunCallbacks
 
                 collider.gameObject.GetComponent<PlayerScript>().Killnum(photonView.Owner.ActorNumber, photonView.Owner.NickName);
             }
+
         }
         if (collider.gameObject.CompareTag("Player"))
         {
             /*  collider.gameObject.GetComponent<PlayerScript>().TagChangeDame();
              collider.gameObject.GetComponent<PlayerScript>().TagChangeDame2(); */
-            Invoke(nameof(BulletDest), 0.1f);
+            Invoke(nameof(BulletDest), 1.0f);
 
         }
         if (collider.gameObject.CompareTag("Chameleon"))
@@ -56,7 +57,7 @@ public class ExplodeScript : MonoBehaviourPunCallbacks
 
                 collider.gameObject.GetComponent<PlayerScript>().Killnum(photonView.Owner.ActorNumber, photonView.Owner.NickName);
             }
-            Invoke(nameof(BulletDest), 0.1f);
+
         }
 
         if (collider.gameObject.CompareTag("Struct"))
