@@ -53,22 +53,22 @@ public class FireScript : MonoBehaviourPunCallbacks
             return;
         }
 
-        if (Input.GetMouseButtonDown(2) && bulletmode == 1 && PauseTextScript.Pause == 1)
+        if ((((Input.GetMouseButtonDown(2) || Input.GetKeyDown(KeyCode.E)) && bulletmode == 1) || Input.GetKeyDown(KeyCode.Q) && bulletmode == 3) && PauseTextScript.Pause == 1)
         {
 
             bulletmode = 2;
         }
-        else if (Input.GetMouseButtonDown(2) && bulletmode == 2 && PauseTextScript.Pause == 1)
+        else if ((((Input.GetMouseButtonDown(2) || Input.GetKeyDown(KeyCode.E)) && bulletmode == 2) || Input.GetKeyDown(KeyCode.Q) && bulletmode == 4) && PauseTextScript.Pause == 1)
         {
 
             bulletmode = 3;
         }
-        else if (Input.GetMouseButtonDown(2) && bulletmode == 3 && PauseTextScript.Pause == 1)
+        else if ((((Input.GetMouseButtonDown(2) || Input.GetKeyDown(KeyCode.E)) && bulletmode == 3) || Input.GetKeyDown(KeyCode.Q) && bulletmode == 1) && PauseTextScript.Pause == 1)
         {
 
             bulletmode = 4;
         }
-        else if (Input.GetMouseButtonDown(2) && bulletmode == 4 && PauseTextScript.Pause == 1)
+        else if ((((Input.GetMouseButtonDown(2) || Input.GetKeyDown(KeyCode.E)) && bulletmode == 4) || Input.GetKeyDown(KeyCode.Q) && bulletmode == 2) && PauseTextScript.Pause == 1)
         {
 
             bulletmode = 1;

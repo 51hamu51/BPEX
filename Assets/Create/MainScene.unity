@@ -188,6 +188,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1830442043 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 905169749902787844, guid: 7f1b92a2a4a6bfb479267dc7badaa123, type: 3}
+  m_PrefabInstance: {fileID: 905169749746660178}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &905169749746660178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -205,14 +210,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 905169748333268745, guid: 7f1b92a2a4a6bfb479267dc7badaa123, type: 3}
       propertyPath: m_text
-      value: " <alpha=#33>L click :shoot\nR click  :reload\n          C click  :
-        mode select\nWASD:move\nArrow : move\n  shift :dash\n      P   :pause\n  
-        Q,E : rotate"
+      value: " <alpha=#33>L click :shoot\nR click  :reload\n    C click, QE  : mode
+        select\nWASD:move\nArrow : move\n  shift :dash\n      P   :pause"
       objectReference: {fileID: 0}
     - target: {fileID: 905169748414004851, guid: 7f1b92a2a4a6bfb479267dc7badaa123, type: 3}
       propertyPath: sceneViewId
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 905169749114101290, guid: 7f1b92a2a4a6bfb479267dc7badaa123, type: 3}
+      propertyPath: ChatBox
+      value: 
+      objectReference: {fileID: 1830442043}
     - target: {fileID: 905169749902787849, guid: 7f1b92a2a4a6bfb479267dc7badaa123, type: 3}
       propertyPath: sceneViewId
       value: 1
