@@ -22,6 +22,10 @@ public class ReMeteoraScript : MonoBehaviourPunCallbacks
 
     void Update()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
         deleteTimeC += Time.deltaTime;
         if (deleteTimeC > 1.5f)
         {
