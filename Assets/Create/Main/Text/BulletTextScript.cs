@@ -26,7 +26,7 @@ public class BulletTextScript : MonoBehaviour
         }
         else
         {
-            Text.text = string.Format("<alpha=#33>Bullet : {0} / 40", FireScript.bulletnum);
+            Text.text = string.Format("{0}", FireScript.bulletnum);
         }
     }
 }
