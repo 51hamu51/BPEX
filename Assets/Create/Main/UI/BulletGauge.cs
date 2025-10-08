@@ -18,6 +18,6 @@ public class BulletGauge : MonoBehaviour
 
     private void BulletReflect()
     {
-        gauge.fillAmount = (float)FireScript.bulletnum / 40;
+        gauge.fillAmount = (float)FireScript.bulletnum / 40 * 0.8f + 0.2f;
     }
 }

@@ -40,6 +40,12 @@ public class FireScript : MonoBehaviourPunCallbacks
     public static int chameleonC = 0;
     /*   private int asteroidReady = 0; */
 
+    private Camera mainCamera;
+
+    private PlayerHPScript playerHPS;
+
+    private PlayerScript PlayerS;
+
     void Start()
     {
 
@@ -74,54 +80,39 @@ public class FireScript : MonoBehaviourPunCallbacks
             bulletmode = 1;
         }
 
-        PlayerHPScript playerHPS;
-        GameObject obj = GameObject.Find("PlayerObserver");
-        playerHPS = obj.GetComponent<PlayerHPScript>();
+        if (playerHPS == null)
+        {
+            playerHPS = GameObject.Find("PlayerObserver").GetComponent<PlayerHPScript>();
+        }
 
-        PlayerScript PlayerS;
-        GameObject obj2 = playerHPS.playerobj;
-        PlayerS = obj2.GetComponent<PlayerScript>();
+        if (PlayerS == null)
+        {
+            PlayerS = playerHPS.playerobj.GetComponent<PlayerScript>();
+        }
 
-        GameObject obj3 = GameObject.Find("Main Camera");
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
 
 
 
-
-
-
-        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && bulletnum > 0 && reloadMana == 0 && PauseTextScript.Pause == 1 && SettingTextScript.Bul[bulletmode - 1] == "asteroid")
+        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && bulletnum > 0 && reloadMana == 0 && PauseTextScript.Pause == 1 && WeaponName() == "asteroid")
         {
             /*  アステロイド  */
-            GameObject bullets = PhotonNetwork.Instantiate("bullet", firingPoint.position, Quaternion.identity, 0) as GameObject;
-            Vector3 force;
-            force = obj3.gameObject.transform.forward * speed;
-            bullets.GetComponent<Rigidbody>().AddForce(force);
-
-            bulletnum -= 1;
+            StraightBullet("bullet", 1);
         }
-        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && bulletnum > 4 && reloadMana == 0 && PauseTextScript.Pause == 1 && SettingTextScript.Bul[bulletmode - 1] == "meteora")
+        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && bulletnum > 4 && reloadMana == 0 && PauseTextScript.Pause == 1 && WeaponName() == "meteora")
         {
             /* メテオラ */
-
-            GameObject bullets = PhotonNetwork.Instantiate("ReMeteora", firingPoint.position, Quaternion.identity, 0) as GameObject;
-            Vector3 force;
-            force = obj3.gameObject.transform.forward * speed;
-            bullets.GetComponent<Rigidbody>().AddForce(force);
-
-            bulletnum -= 5;
+            StraightBullet("ReMeteora", 5);
         }
-        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && bulletnum > 4 && reloadMana == 0 && PauseTextScript.Pause == 1 && SettingTextScript.Bul[bulletmode - 1] == "leadbullet")
+        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && bulletnum > 4 && reloadMana == 0 && PauseTextScript.Pause == 1 && WeaponName() == "leadbullet")
         {
             /* レッドバレット */
-
-            GameObject bullets = PhotonNetwork.Instantiate("leadbullet", firingPoint.position, Quaternion.identity, 0) as GameObject;
-            Vector3 force;
-            force = obj3.gameObject.transform.forward * (speed / 3);
-            bullets.GetComponent<Rigidbody>().AddForce(force);
-
-            bulletnum -= 5;
+            StraightBullet("leadbullet", 5);
         }
-        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && bulletnum > 2 && reloadMana == 0 && PauseTextScript.Pause == 1 && SettingTextScript.Bul[bulletmode - 1] == "hound")
+        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && bulletnum > 2 && reloadMana == 0 && PauseTextScript.Pause == 1 && WeaponName() == "hound")
         {
             /* ハウンド */
 
@@ -129,14 +120,14 @@ public class FireScript : MonoBehaviourPunCallbacks
 
             bulletnum -= 3;
         }
-        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina > 0 && shieldC == 0 && SettingTextScript.Bul[bulletmode - 1] == "shield")
+        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina > 0 && shieldC == 0 && WeaponName() == "shield")
         {
             /*  シールド */
             shieldC = 1;
             GameObject shields = PhotonNetwork.Instantiate("shield", this.transform.position, Quaternion.identity, 0) as GameObject;
 
         }
-        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina >= 1.5f && shieldC == 0 && SettingTextScript.Bul[bulletmode - 1] == "escudo")
+        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina >= 1.5f && shieldC == 0 && WeaponName() == "escudo")
         {
             /*  エスクード */
 
@@ -144,7 +135,7 @@ public class FireScript : MonoBehaviourPunCallbacks
             PlayerScript.stamina -= 1.5f;
 
         }
-        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina >= 0.7f && PlayerScript.lead == 0 && SettingTextScript.Bul[bulletmode - 1] == "grasshopper")
+        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina >= 0.7f && PlayerScript.lead == 0 && WeaponName() == "grasshopper")
         {
 
             /*  グラスホッパー */
@@ -181,14 +172,14 @@ public class FireScript : MonoBehaviourPunCallbacks
 
         }
 
-        /*   if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina > 0 && chameleonC == 0 && SettingTextScript.Bul[bulletmode - 1] == "chameleon")
+        /*   if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina > 0 && chameleonC == 0 && WeaponName() == "chameleon")
           {
 
               chameleonC = 1;
 
 
           }
-          else if (Input.GetMouseButtonDown(0) && PauseTextScript.Pause == 1 || PlayerScript.stamina <= 0 || SettingTextScript.Bul[bulletmode - 1] != "chameleon")
+          else if (Input.GetMouseButtonDown(0) && PauseTextScript.Pause == 1 || PlayerScript.stamina <= 0 || WeaponName() != "chameleon")
           {
 
               chameleonC = 0;
@@ -228,7 +219,7 @@ public class FireScript : MonoBehaviourPunCallbacks
         } */
 
 
-        if (PauseTextScript.Pause == 1 && SettingTextScript.Bul[bulletmode - 1] == "free")
+        if (PauseTextScript.Pause == 1 && WeaponName() == "free")
         {
             /* フリー */
             bulletmode += 1;
@@ -237,7 +228,7 @@ public class FireScript : MonoBehaviourPunCallbacks
                 bulletmode = 1;
             }
         }
-        if (PauseTextScript.Pause == 1 && SettingTextScript.Bul[bulletmode - 1] == "free2")
+        if (PauseTextScript.Pause == 1 && WeaponName() == "free2")
         {
             /* フリー2 */
             bulletmode += 1;
@@ -246,7 +237,7 @@ public class FireScript : MonoBehaviourPunCallbacks
                 bulletmode = 1;
             }
         }
-        if (PauseTextScript.Pause == 1 && SettingTextScript.Bul[bulletmode - 1] == "free3")
+        if (PauseTextScript.Pause == 1 && WeaponName() == "free3")
         {
             /* フリー3 */
             bulletmode += 1;
@@ -255,7 +246,7 @@ public class FireScript : MonoBehaviourPunCallbacks
                 bulletmode = 1;
             }
         }
-        if (playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1 && SettingTextScript.Bul[bulletmode - 1] == "kogetu" && kogetuC == 0)
+        if (playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1 && WeaponName() == "kogetu" && kogetuC == 0)
         {
             /*  弧月 */
 
@@ -283,6 +274,48 @@ public class FireScript : MonoBehaviourPunCallbacks
         }
         bulletnum = bulletmax;
         reloadMana = 0;
+    }
+
+    /// <summary>
+    /// まっすぐ飛ぶ弾の共通処理
+    /// </summary>
+    /// <param name="bulletName">Asset上の弾の名前</param>
+    private void StraightBullet(string bulletName, int amount)
+    {
+        // 画面中心からRayを飛ばす
+        Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        RaycastHit hit;
+
+        // ヒットした場所 or まっすぐ1000m先
+        Vector3 targetPoint;
+        if (Physics.Raycast(ray, out hit, 1000f))
+        {
+            targetPoint = hit.point;
+        }
+        else
+        {
+            targetPoint = ray.GetPoint(1000f);
+        }
+
+        // 発射方向を計算
+        Vector3 shootDir = (targetPoint - firingPoint.position).normalized;
+
+        //発射
+        GameObject bulletObj = PhotonNetwork.Instantiate(bulletName, firingPoint.position, Quaternion.LookRotation(shootDir), 0);
+        bulletObj.GetComponent<Rigidbody>().AddForce(shootDir * speed);
+
+
+        bulletnum -= amount;
+
+    }
+
+    /// <summary>
+    /// 現在選択されている武器の名前を返す
+    /// </summary>
+    /// <returns></returns>
+    public string WeaponName()
+    {
+        return SettingTextScript.Bul[bulletmode - 1];
     }
 
 
