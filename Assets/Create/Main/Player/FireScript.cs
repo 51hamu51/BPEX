@@ -286,7 +286,7 @@ public class FireScript : MonoBehaviourPunCallbacks
         Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         RaycastHit hit;
 
-        // ヒットした場所 or まっすぐ1000m先
+        // ヒットした場所 or まっすぐ100m先
         Vector3 targetPoint;
         if (Physics.Raycast(ray, out hit, 1000f))
         {
@@ -294,7 +294,7 @@ public class FireScript : MonoBehaviourPunCallbacks
         }
         else
         {
-            targetPoint = ray.GetPoint(1000f);
+            targetPoint = ray.GetPoint(100f);
         }
 
         // 発射方向を計算
