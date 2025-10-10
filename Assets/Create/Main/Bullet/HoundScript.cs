@@ -11,6 +11,11 @@ public class HoundScript : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         Destroy(gameObject, deleteTime);
 
         //発射されたタイミングで正面の敵を感知
@@ -35,17 +40,19 @@ public class HoundScript : MonoBehaviourPunCallbacks
         }
 
 
-        InvokeRepeating("Search", 0, 1);
+        InvokeRepeating("Search", 0, 0.1f);
     }
 
 
     void Update()
     {
 
-        this.transform.position += this.transform.forward * Time.deltaTime;
+        this.transform.position += speed * this.transform.forward * Time.deltaTime;
     }
     void Search()
     {
+
+
         Debug.Log("search");
         if (rival != null)
         {
