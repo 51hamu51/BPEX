@@ -115,10 +115,7 @@ public class FireScript : MonoBehaviourPunCallbacks
         if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && bulletnum > 2 && reloadMana == 0 && PauseTextScript.Pause == 1 && WeaponName() == "hound")
         {
             /* ハウンド */
-
-            GameObject bullets = PhotonNetwork.Instantiate("hound", firingPoint.position, Quaternion.identity, 0) as GameObject;
-
-            bulletnum -= 3;
+            StraightBullet("hound", 3);
         }
         if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina > 0 && shieldC == 0 && WeaponName() == "shield")
         {

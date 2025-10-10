@@ -11,8 +11,36 @@ public class HoundScript : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         Destroy(gameObject, deleteTime);
-        InvokeRepeating("Seach", 0, 1);
+
+        //発射されたタイミングで正面の敵を感知
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 1000f))
+        {
+            // 敵（Playerタグ）が正面に見えたら、その敵を追尾
+            if (hit.collider.CompareTag("Player") || hit.collider.CompareTag("PlayerParts"))
+            {
+                rival = hit.collider.gameObject;
+                transform.LookAt(rival.transform);
+                //色をオレンジにする
+                Renderer rend = GetComponent<Renderer>();
+                if (rend != null)
+                {
+                    // マテリアルの色をオレンジに変更します
+                    rend.material.color = new Color(1.0f, 0.65f, 0.0f);
+                }
+            }
+        }
+
+
+        InvokeRepeating("Search", 0, 0.1f);
     }
 
 
@@ -21,12 +49,18 @@ public class HoundScript : MonoBehaviourPunCallbacks
 
         this.transform.position += speed * this.transform.forward * Time.deltaTime;
     }
-    void Seach()
+    void Search()
     {
-        rival = GameObject.FindGameObjectWithTag("Player");
+
+
+        Debug.Log("search");
         if (rival != null)
         {
+
             this.transform.LookAt(rival.transform);
+            /* Vector3 shootDir = (rival.transform.position - this.transform.position).normalized;
+            this.GetComponent<Rigidbody>().AddForce(shootDir * 1000f); */
+            Debug.Log("rival");
         }
     }
     void OnTriggerEnter(Collider collider)
