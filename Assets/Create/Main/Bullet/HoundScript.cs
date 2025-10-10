@@ -12,6 +12,29 @@ public class HoundScript : MonoBehaviourPunCallbacks
     void Start()
     {
         Destroy(gameObject, deleteTime);
+
+        //発射されたタイミングで正面の敵を感知
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 1000f))
+        {
+            // 敵（Playerタグ）が正面に見えたら、その敵を追尾
+            if (hit.collider.CompareTag("Player"))
+            {
+                rival = hit.collider.gameObject;
+                transform.LookAt(rival.transform);
+                //色をオレンジにする
+                Renderer rend = GetComponent<Renderer>();
+                if (rend != null)
+                {
+                    // マテリアルの色をオレンジに変更します
+                    rend.material.color = new Color(1.0f, 0.65f, 0.0f);
+                }
+            }
+        }
+
+
         InvokeRepeating("Seach", 0, 1);
     }
 
@@ -23,7 +46,6 @@ public class HoundScript : MonoBehaviourPunCallbacks
     }
     void Seach()
     {
-        rival = GameObject.FindGameObjectWithTag("Player");
         if (rival != null)
         {
             this.transform.LookAt(rival.transform);
