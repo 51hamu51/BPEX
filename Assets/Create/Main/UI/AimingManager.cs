@@ -75,7 +75,7 @@ public class AimingManager : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 1000f))
         {
             // 敵（Playerタグ）が正面に見えたら
-            if (hit.collider.CompareTag("Player"))
+            if (hit.collider.CompareTag("Player") || hit.collider.CompareTag("PlayerParts"))
             {
                 aiming.GetComponent<Image>().sprite = CaptureAim;
                 aimingRectTransform.sizeDelta = new Vector2(CaptureSize, CaptureSize);
