@@ -16,7 +16,7 @@ public class HoundScript : MonoBehaviourPunCallbacks
             return;
         }
 
-        Destroy(gameObject, deleteTime);
+        StartCoroutine(AutoDestroyCoroutine());
 
         //発射されたタイミングで正面の敵を感知
         Ray ray = new Ray(transform.position, transform.forward);
@@ -28,41 +28,54 @@ public class HoundScript : MonoBehaviourPunCallbacks
             if (hit.collider.CompareTag("Player") || hit.collider.CompareTag("PlayerParts"))
             {
                 rival = hit.collider.gameObject;
-                transform.LookAt(rival.transform);
-                //色をオレンジにする
-                Renderer rend = GetComponent<Renderer>();
-                if (rend != null)
-                {
-                    // マテリアルの色をオレンジに変更します
-                    rend.material.color = new Color(1.0f, 0.65f, 0.0f);
-                }
+                photonView.RPC("ChangeColorToOrange", RpcTarget.AllBuffered);
             }
+
         }
 
 
         InvokeRepeating("Search", 0, 0.1f);
     }
 
+    /// <summary>
+    /// 追跡時に色を変える
+    /// </summary>
+    [PunRPC]
+    void ChangeColorToOrange()
+    {
+        Renderer rend = GetComponent<Renderer>();
+        if (rend != null)
+        {
+            rend.material.color = new Color(1.0f, 0.65f, 0.0f);
+        }
+    }
+
+    IEnumerator AutoDestroyCoroutine()
+    {
+        yield return new WaitForSeconds(deleteTime);
+        PhotonNetwork.Destroy(gameObject);
+    }
 
     void Update()
     {
+        if (!photonView.IsMine) return;
 
         this.transform.position += speed * this.transform.forward * Time.deltaTime;
     }
+
+    /// <summary>
+    /// ターゲットの方向を向く
+    /// </summary>
     void Search()
     {
+        if (!photonView.IsMine) return;
 
-
-        Debug.Log("search");
         if (rival != null)
         {
-
             this.transform.LookAt(rival.transform);
-            /* Vector3 shootDir = (rival.transform.position - this.transform.position).normalized;
-            this.GetComponent<Rigidbody>().AddForce(shootDir * 1000f); */
-            Debug.Log("rival");
         }
     }
+
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.CompareTag("Me"))
