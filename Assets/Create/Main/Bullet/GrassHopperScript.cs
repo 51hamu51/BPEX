@@ -9,7 +9,18 @@ public class GrassHopperScript : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        Destroy(gameObject, deleteTime);
+        if (photonView.IsMine)
+        {
+            StartCoroutine(AutoDestroyCoroutine());
+        }
+    }
+
+    // 時限削除用のコルーチン
+    IEnumerator AutoDestroyCoroutine()
+    {
+        yield return new WaitForSeconds(deleteTime);
+        // 時間が来たらネットワーク上から削除
+        PhotonNetwork.Destroy(gameObject);
     }
 
 

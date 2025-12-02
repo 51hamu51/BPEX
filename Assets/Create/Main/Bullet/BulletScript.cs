@@ -12,7 +12,21 @@ public class BulletScript : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        Destroy(gameObject, deleteTime);
+        if (photonView.IsMine)
+        {
+            StartCoroutine(AutoDestroyCoroutine());
+        }
+    }
+
+    /// <summary>
+    /// 時限削除用のコルーチン
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator AutoDestroyCoroutine()
+    {
+        yield return new WaitForSeconds(deleteTime);
+        // 時間が来たらネットワーク上から削除
+        PhotonNetwork.Destroy(gameObject);
     }
 
 
