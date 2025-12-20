@@ -142,6 +142,7 @@ public class FireScript : MonoBehaviourPunCallbacks
             {
                 transform.position += PlayerS.speed * transform.up * Time.deltaTime * 3;
 
+                float preSpeed = PlayerS.speed;
                 PlayerS.speed = 300;
                 PlayerScript.stamina -= 0.7f;
                 if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
@@ -160,10 +161,12 @@ public class FireScript : MonoBehaviourPunCallbacks
                 {
                     transform.position -= speed * transform.right * Time.deltaTime;
                 }
+
+                PlayerS.speed = preSpeed;
             }
             else
             {
-                transform.position += PlayerS.speed * transform.up * Time.deltaTime * 1;
+                transform.position += PlayerS.speed * transform.up * Time.deltaTime * 2;
                 PlayerScript.stamina -= 0.7f;
             }
 
