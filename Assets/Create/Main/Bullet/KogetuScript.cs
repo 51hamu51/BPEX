@@ -84,9 +84,9 @@ public class KogetuScript : MonoBehaviourPunCallbacks
             PlayerHPScript playerHPS;
             GameObject obj = GameObject.Find("PlayerObserver");
             playerHPS = obj.GetComponent<PlayerHPScript>();
-            playerHPS.PlayerHP -= 3;
+            playerHPS.Damage(3);
             PlayerScript.damage = 1;
-            if (playerHPS.PlayerHP <= 0)
+            if (playerHPS.GetHP() <= 0)
             {
 
                 collider.gameObject.GetComponent<PlayerScript>().Killnum(photonView.Owner.ActorNumber, photonView.Owner.NickName);
@@ -99,9 +99,9 @@ public class KogetuScript : MonoBehaviourPunCallbacks
             PlayerHPScript playerHPS;
             GameObject obj = GameObject.Find("PlayerObserver");
             playerHPS = obj.GetComponent<PlayerHPScript>();
-            playerHPS.PlayerHP -= 3;
+            playerHPS.Damage(3);
             PlayerScript.damage = 1;
-            if (playerHPS.PlayerHP <= 0)
+            if (playerHPS.GetHP() <= 0)
             {
 
                 collider.gameObject.GetComponent<PlayerScript>().Killnum(photonView.Owner.ActorNumber, photonView.Owner.NickName);

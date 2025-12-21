@@ -36,7 +36,7 @@ public class EnemyHoundScript : MonoBehaviour
             PlayerHPScript PlayerHPS;
             GameObject obj = GameObject.Find("PlayerObserver");
             PlayerHPS = obj.GetComponent<PlayerHPScript>();
-            PlayerHPS.PlayerHP -= 1;
+            PlayerHPS.Damage(1);
             Destroy(gameObject);
         }
         if (collision.gameObject.CompareTag("Chameleon"))
@@ -44,7 +44,7 @@ public class EnemyHoundScript : MonoBehaviour
             PlayerHPScript playerHPS;
             GameObject obj = GameObject.Find("PlayerObserver");
             playerHPS = obj.GetComponent<PlayerHPScript>();
-            playerHPS.PlayerHP -= 1;
+            playerHPS.Damage(1);
             Destroy(gameObject);
         }
         if (collision.gameObject.CompareTag("Shield"))

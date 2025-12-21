@@ -97,34 +97,34 @@ public class FireScript : MonoBehaviourPunCallbacks
 
 
 
-        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && bulletnum > 0 && reloadMana == 0 && PauseTextScript.Pause == 1 && WeaponName() == "asteroid")
+        if (Input.GetMouseButtonDown(0) && playerHPS.GetHP() > 0 && bulletnum > 0 && reloadMana == 0 && PauseTextScript.Pause == 1 && WeaponName() == "asteroid")
         {
             /*  アステロイド  */
             StraightBullet("bullet", 1);
         }
-        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && bulletnum > 4 && reloadMana == 0 && PauseTextScript.Pause == 1 && WeaponName() == "meteora")
+        if (Input.GetMouseButtonDown(0) && playerHPS.GetHP() > 0 && bulletnum > 4 && reloadMana == 0 && PauseTextScript.Pause == 1 && WeaponName() == "meteora")
         {
             /* メテオラ */
             StraightBullet("ReMeteora", 5);
         }
-        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && bulletnum > 4 && reloadMana == 0 && PauseTextScript.Pause == 1 && WeaponName() == "leadbullet")
+        if (Input.GetMouseButtonDown(0) && playerHPS.GetHP() > 0 && bulletnum > 4 && reloadMana == 0 && PauseTextScript.Pause == 1 && WeaponName() == "leadbullet")
         {
             /* レッドバレット */
             StraightBullet("leadbullet", 5);
         }
-        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && bulletnum > 2 && reloadMana == 0 && PauseTextScript.Pause == 1 && WeaponName() == "hound")
+        if (Input.GetMouseButtonDown(0) && playerHPS.GetHP() > 0 && bulletnum > 2 && reloadMana == 0 && PauseTextScript.Pause == 1 && WeaponName() == "hound")
         {
             /* ハウンド */
             StraightBullet("hound", 3);
         }
-        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina > 0 && shieldC == 0 && WeaponName() == "shield")
+        if (Input.GetMouseButtonDown(0) && playerHPS.GetHP() > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina > 0 && shieldC == 0 && WeaponName() == "shield")
         {
             /*  シールド */
             shieldC = 1;
             GameObject shields = PhotonNetwork.Instantiate("shield", this.transform.position, Quaternion.identity, 0) as GameObject;
 
         }
-        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina >= 1.5f && shieldC == 0 && WeaponName() == "escudo")
+        if (Input.GetMouseButtonDown(0) && playerHPS.GetHP() > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina >= 1.5f && shieldC == 0 && WeaponName() == "escudo")
         {
             /*  エスクード */
 
@@ -132,7 +132,7 @@ public class FireScript : MonoBehaviourPunCallbacks
             PlayerScript.stamina -= 1.5f;
 
         }
-        if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina >= 0.7f && PlayerScript.lead == 0 && WeaponName() == "grasshopper")
+        if (Input.GetMouseButtonDown(0) && playerHPS.GetHP() > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina >= 0.7f && PlayerScript.lead == 0 && WeaponName() == "grasshopper")
         {
 
             /*  グラスホッパー */
@@ -172,7 +172,7 @@ public class FireScript : MonoBehaviourPunCallbacks
 
         }
 
-        /*   if (Input.GetMouseButtonDown(0) && playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina > 0 && chameleonC == 0 && WeaponName() == "chameleon")
+        /*   if (Input.GetMouseButtonDown(0) && playerHPS.GetHP() > 0 && PauseTextScript.Pause == 1 && PlayerScript.stamina > 0 && chameleonC == 0 && WeaponName() == "chameleon")
           {
 
               chameleonC = 1;
@@ -246,7 +246,7 @@ public class FireScript : MonoBehaviourPunCallbacks
                 bulletmode = 1;
             }
         }
-        if (playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1 && WeaponName() == "kogetu" && kogetuC == 0)
+        if (playerHPS.GetHP() > 0 && PauseTextScript.Pause == 1 && WeaponName() == "kogetu" && kogetuC == 0)
         {
             /*  弧月 */
 

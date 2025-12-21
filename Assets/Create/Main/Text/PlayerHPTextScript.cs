@@ -25,7 +25,7 @@ public class PlayerHPTextScript : MonoBehaviour
         }
         else
         {
-            Text.text = string.Format("{0} / 10", playerHPS.PlayerHP);
+            Text.text = string.Format("{0} / 10", playerHPS.GetHP());
         }
     }
 }

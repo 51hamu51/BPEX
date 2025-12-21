@@ -73,7 +73,7 @@ public class PlayerScript : MonoBehaviourPunCallbacks
             {
                 Cursor.lockState = CursorLockMode.None;
             }
-            if (playerHPS.PlayerHP > 0 && PauseTextScript.Pause == 1)
+            if (playerHPS.GetHP() > 0 && PauseTextScript.Pause == 1)
             {
 
                 Cursor.lockState = CursorLockMode.Locked;
@@ -147,7 +147,7 @@ public class PlayerScript : MonoBehaviourPunCallbacks
             {
                 ResultTextScript.fall = 1;
 
-                playerHPS.PlayerHP = 0;
+                playerHPS.SetHP(0);
             }
 
 
@@ -173,7 +173,7 @@ public class PlayerScript : MonoBehaviourPunCallbacks
             }
 
 
-            if (playerHPS.PlayerHP <= 0)
+            if (playerHPS.GetHP() <= 0)
             {
                 restart = 1;
 
@@ -241,7 +241,7 @@ public class PlayerScript : MonoBehaviourPunCallbacks
         {
             return;
         }
-        if (playerHPS.PlayerHP > 0)
+        if (playerHPS.GetHP() > 0)
         {
             return;
         }
@@ -279,7 +279,7 @@ public class PlayerScript : MonoBehaviourPunCallbacks
             PlayerHPScript playerHPS;
             GameObject obj = GameObject.Find("PlayerObserver");
             playerHPS = obj.GetComponent<PlayerHPScript>();
-            playerHPS.PlayerHP = 10;
+            playerHPS.SetHP(10);
             stamina = 5.0f;
             FireScript.bulletnum = 40;
             point -= 1;
