@@ -11,15 +11,6 @@ public class ButtonTextScript : MonoBehaviour
 
     void Start()
     {
-
-    }
-
-
-    void Update()
-    {
-
-
         Text.text = string.Format("{0}", SettingTextScript.Bul[ButtonNum]);
-
     }
 }

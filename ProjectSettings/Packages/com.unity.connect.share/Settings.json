@@ -21,7 +21,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"C:/Unity/HistoryBuilds/BPEX_Builds/2.0.3;C:/Unity/HistoryBuilds/BPEX_Builds/2.0.2;C:/Unity/HistoryBuilds/BPEX_Builds/2.0.1;C:/Unity/HistoryBuilds/BPEX_Builds/1.7;C:/Unity/HistoryBuilds/BPEX_Builds/1.6;C:/Unity/HistoryBuilds/BPEX_Builds/1.5;C:/Unity/HistoryBuilds/BPEX_Builds/1.4;C:/Unity/HistoryBuilds/BPEX_Builds/1.2;C:/Unity/HistoryBuilds/BPEX_Builds/1.1;C:/BPEX/BPEX_1.3\"}"
+                "value": "{\"m_Value\":\"C:/Unity/HistoryBuilds/BPEX_Builds/2.0.12;C:/Unity/HistoryBuilds/BPEX_Builds/2.0.11;C:/Unity/HistoryBuilds/BPEX_Builds/2.0.10;C:/Unity/HistoryBuilds/BPEX_Builds/2.0.9;C:/Unity/HistoryBuilds/BPEX_Builds/2.0.8;C:/Unity/HistoryBuilds/BPEX_Builds/2.0.7;C:/Unity/HistoryBuilds/BPEX_Builds/2.0.6;C:/Unity/HistoryBuilds/BPEX_Builds/2.0.5;C:/Unity/HistoryBuilds/BPEX_Builds/2.0.3;C:/Unity/HistoryBuilds/BPEX_Builds/2.0.2\"}"
             }
         ]
     }
