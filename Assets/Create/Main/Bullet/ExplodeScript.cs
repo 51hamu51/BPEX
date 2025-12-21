@@ -30,9 +30,9 @@ public class ExplodeScript : MonoBehaviourPunCallbacks
             PlayerHPScript playerHPS;
             GameObject obj = GameObject.Find("PlayerObserver");
             playerHPS = obj.GetComponent<PlayerHPScript>();
-            playerHPS.PlayerHP -= 2;
+            playerHPS.Damage(2);
             PlayerScript.damage = 1;
-            if (playerHPS.PlayerHP <= 0)
+            if (playerHPS.GetHP() <= 0)
             {
 
                 collider.gameObject.GetComponent<PlayerScript>().Killnum(photonView.Owner.ActorNumber, photonView.Owner.NickName);
@@ -51,9 +51,9 @@ public class ExplodeScript : MonoBehaviourPunCallbacks
             PlayerHPScript playerHPS;
             GameObject obj = GameObject.Find("PlayerObserver");
             playerHPS = obj.GetComponent<PlayerHPScript>();
-            playerHPS.PlayerHP -= 2;
+            playerHPS.Damage(2);
             PlayerScript.damage = 1;
-            if (playerHPS.PlayerHP <= 0)
+            if (playerHPS.GetHP() <= 0)
             {
 
                 collider.gameObject.GetComponent<PlayerScript>().Killnum(photonView.Owner.ActorNumber, photonView.Owner.NickName);

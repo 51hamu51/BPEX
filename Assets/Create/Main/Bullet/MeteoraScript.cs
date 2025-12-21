@@ -76,9 +76,9 @@ public class MeteoraScript : MonoBehaviourPunCallbacks
             PlayerHPScript playerHPS;
             GameObject obj = GameObject.Find("PlayerObserver");
             playerHPS = obj.GetComponent<PlayerHPScript>();
-            playerHPS.PlayerHP -= 1;
+            playerHPS.Damage(1);
             PlayerScript.damage = 1;
-            if (playerHPS.PlayerHP <= 0)
+            if (playerHPS.GetHP() <= 0)
             {
 
                 collider.gameObject.GetComponent<PlayerScript>().Killnum(photonView.Owner.ActorNumber, photonView.Owner.NickName);
@@ -96,9 +96,9 @@ public class MeteoraScript : MonoBehaviourPunCallbacks
             PlayerHPScript playerHPS;
             GameObject obj = GameObject.Find("PlayerObserver");
             playerHPS = obj.GetComponent<PlayerHPScript>();
-            playerHPS.PlayerHP -= 1;
+            playerHPS.Damage(1);
             PlayerScript.damage = 1;
-            if (playerHPS.PlayerHP <= 0)
+            if (playerHPS.GetHP() <= 0)
             {
 
                 collider.gameObject.GetComponent<PlayerScript>().Killnum(photonView.Owner.ActorNumber, photonView.Owner.NickName);

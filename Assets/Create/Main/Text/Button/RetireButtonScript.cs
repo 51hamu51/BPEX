@@ -21,7 +21,7 @@ public class RetireButtonScript : MonoBehaviour
         GameObject obj = GameObject.Find("PlayerObserver");
         playerHPS = obj.GetComponent<PlayerHPScript>();
         ResultTextScript.retire = 1;
-        playerHPS.PlayerHP = 0;
+        playerHPS.SetHP(0);
         PauseTextScript.Pause = 1;
     }
 }
