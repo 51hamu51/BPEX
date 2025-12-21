@@ -25,6 +25,17 @@ public class UIDragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private int originalSiblingIndex;
 
 
+    /// <summary>
+    /// 掴んでいるカーソル
+    /// </summary>
+    public Texture2D grabCursor;
+
+    /// <summary>
+    /// カーソル画像を変えた時のhotSpot
+    /// </summary>
+    private Vector2 hotSpot;
+
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -37,6 +48,14 @@ public class UIDragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
     }
 
+    private void Start()
+    {
+        hotSpot = new Vector2(
+           grabCursor.width / 2,
+           grabCursor.height / 2
+       );
+    }
+
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -45,9 +64,13 @@ public class UIDragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             startPos = rectTransform.anchoredPosition;
             isDropped = false;
 
+            Cursor.SetCursor(grabCursor, hotSpot, CursorMode.Auto);//カーソルの変更
+
             //元の描画順を保持して、最前面に持ってくる
             originalSiblingIndex = rectTransform.GetSiblingIndex();
             rectTransform.SetAsLastSibling();
+
+            rectTransform.localScale = Vector3.one * 1.2f;//拡大
 
             canvasGroup.blocksRaycasts = false; // ドラッグ中にレイキャストを無効にする
 
@@ -82,7 +105,11 @@ public class UIDragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 ResetPos();
             }
 
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);//カーソルをデフォルトに戻す
+
             rectTransform.SetSiblingIndex(originalSiblingIndex);//元の描画順に戻す
+
+            rectTransform.localScale = Vector3.one;//大きさを元に戻す
         }
 
         buttonManeScript.DragFinish();

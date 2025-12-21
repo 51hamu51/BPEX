@@ -54,6 +54,7 @@ public class ButtonManeScript : MonoBehaviour
 
     public void DragFinish()
     {
+        IsDragging = false;
         foreach (var button in Buttons)
         {
             button.GetComponent<UIDragAndDrop>().OtherFinishDrag();
@@ -83,7 +84,7 @@ public class ButtonManeScript : MonoBehaviour
         if (IsDragging)
         {
             movingButton.GetComponent<UIDragAndDrop>().ResetPos();
-            IsDragging = false;
+
         }
     }
 }
